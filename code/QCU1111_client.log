@@ -1,2 +1,7 @@
 [2025-10-28 22:14:32] PURCHASE - User: QCU1111 - Params: QC1111,10222024 - Result: Item not found
 [2025-10-28 23:33:51] PURCHASE - User: QCU1111 - Params: QC9001,28102025 - Result: Insufficient budget. Available: $979.03, Required: $1999.98
+[2025-10-29 00:03:30] RETURN - User: QCU1111 - Params: QC9001,28102025 - Result: Purchase record not found
+[2025-10-29 00:03:38] PURCHASE - User: QCU1111 - Params: QC9001,28102025 - Result: Insufficient budget. Available: $979.03, Required: $999.99
+[2025-10-29 00:03:57] PURCHASE - User: QCU1111 - Params: QC2001,100213010230 - Result: Insufficient quantity. Available: 20, Requested: 28102025
+[2025-10-29 00:04:06] PURCHASE - User: QCU1111 - Params: QC2001,28102025 - Result: Purchase successful! Bought 1 x Milk for $4.99. Remaining budget: $974.04
+[2025-10-29 00:04:22] RETURN - User: QCU1111 - Params: QC2001,28102025 - Result: Return successful. Refunded: $4.99

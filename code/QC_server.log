@@ -172,3 +172,54 @@
 [2025-10-28 23:31:24] ADD_ITEM - User: QCM1111 - Params: QC9001,Laptop,5,999.99 - Result: Item quantity updated. New quantity: 15
 [2025-10-28 23:31:28] LIST_ITEMS - User: QCM1111 - Params:  - Result: Listed 11 items
 [2025-10-28 23:31:42] REMOVE_ITEM - User: QCM1111 - Params: QC9001,5 - Result: Item quantity reduced. New quantity: 10
+[2025-10-28 23:46:30] LIST_ITEMS - User: QCM1111 - Params:  - Result: Listed 11 items
+[2025-10-28 23:51:48] ADD_ITEM - User: QCM1111 - Params: QC2001,Milk,20,4.99 - Result: Item added successfully
+[2025-10-28 23:51:48] ADD_ITEM - User: QCM1111 - Params: QC8001,TestCoffee,10,5.99 - Result: Item added successfully
+[2025-10-28 23:51:48] ADD_ITEM - User: QCM1111 - Params: QC8001,TestCoffee,5,5.99 - Result: Item quantity updated. New quantity: 15
+[2025-10-28 23:51:48] ADD_ITEM - User: QCM1111 - Params: QC8001,TestCoffee,10,5.99 - Result: Item quantity updated. New quantity: 25
+[2025-10-28 23:51:48] REMOVE_ITEM - User: QCM1111 - Params: QC1001,5 - Result: Item quantity reduced. New quantity: 5
+[2025-10-28 23:51:48] ADD_ITEM - User: QCM1111 - Params: QC3001,TestItem,5,1.0 - Result: Item added successfully
+[2025-10-28 23:51:48] REMOVE_ITEM - User: QCM1111 - Params: QC3001,10 - Result: Item quantity set to 0. Item remains in inventory for waitlist.
+[2025-10-28 23:51:48] LIST_ITEMS - User: QCM1111 - Params:  - Result: Listed 6 items
+[2025-10-28 23:51:48] PURCHASE - User: QCU1111 - Params: QC1001,2,28102025 - Result: Purchase successful! Bought 2 x Coffee for $11.98. Remaining budget: $988.02
+[2025-10-28 23:51:48] REMOTE_PURCHASE - User: QCU1111 - Params: ON1001,1,28102025 - Result: Purchase successful. Remaining budget: $982.03
+[2025-10-28 23:51:48] FIND_ITEM - User: QCU1111 - Params: Coffee - Result: Found 3 items
+[2025-10-28 23:51:48] REMOTE_PURCHASE_FAILED - User: QCU2222 - Params: ON9999,2,28102025 - Result: Purchase failed: Insufficient budget
+[2025-10-28 23:51:48] ADD_ITEM - User: QCM1111 - Params: QC4001,LimitedItem,3,2.0 - Result: Item added successfully
+[2025-10-28 23:51:48] ADD_ITEM - User: QCM1111 - Params: QC5001,OutOfStock,0,1.0 - Result: Item added successfully
+[2025-10-28 23:51:48] PURCHASE - User: QCU5555 - Params: QC1002,1,13102025 - Result: Purchase successful! Bought 1 x Tea for $3.99. Remaining budget: $996.01
+[2025-10-28 23:51:48] RETURN - User: QCU5555 - Params: QC1002,28102025 - Result: Return successful. Refunded: $3.99
+[2025-10-28 23:51:49] PURCHASE - User: QCU6666 - Params: QC1002,1,23092025 - Result: Purchase successful! Bought 1 x Tea for $3.99. Remaining budget: $996.01
+[2025-10-28 23:51:49] PURCHASE - User: QCU8888 - Params: QC1001,1,18102025 - Result: Purchase successful! Bought 1 x Coffee for $5.99. Remaining budget: $994.01
+[2025-10-28 23:51:49] PURCHASE - User: QCU9999 - Params: QC1002,1,18102025 - Result: Purchase successful! Bought 1 x Tea for $3.99. Remaining budget: $996.01
+[2025-10-28 23:51:49] EXCHANGE_START - User: QCU8888 - Params: newItem=QC1003,oldItem=QC1001 - Result: Started
+[2025-10-28 23:51:49] EXCHANGE - User: QCU8888 - Params: QC1003,QC1001 - Result: Exchange successful. Refunded $3.49
+[2025-10-28 23:51:49] PURCHASE - User: QCU1234 - Params: QC1001,1,18102025 - Result: Purchase successful! Bought 1 x Coffee for $5.99. Remaining budget: $994.01
+[2025-10-28 23:51:49] EXCHANGE_START - User: QCU1234 - Params: newItem=ON1001,oldItem=QC1001 - Result: Started
+[2025-10-28 23:51:49] EXCHANGE - User: QCU1234 - Params: ON1001,QC1001 - Result: Exchange successful. Refunded $0.0
+[2025-10-28 23:51:49] PURCHASE - User: QCU5678 - Params: QC1002,1,23092025 - Result: Purchase successful! Bought 1 x Tea for $3.99. Remaining budget: $996.01
+[2025-10-28 23:51:49] EXCHANGE_START - User: QCU5678 - Params: newItem=QC1003,oldItem=QC1002 - Result: Started
+[2025-10-28 23:51:49] EXCHANGE_START - User: QCU0000 - Params: newItem=QC1003,oldItem=QC1001 - Result: Started
+[2025-10-28 23:51:49] REMOTE_PURCHASE - User: QCU9991 - Params: ON1001,1,28102025 - Result: Purchase successful. Remaining budget: $994.01
+[2025-10-28 23:51:49] REMOTE_PURCHASE_FAILED - User: QCU9991 - Params: ON1002,1,28102025 - Result: Purchase failed: Already purchased from ON store. Limit: 1 item per remote store.
+[2025-10-28 23:51:49] ADD_ITEM - User: QCM1111 - Params: QC6001,ConcurrentTest,10,1.0 - Result: Item added successfully
+[2025-10-28 23:51:49] PURCHASE - User: QCU3333 - Params: QC6001,3,28102025 - Result: Purchase successful! Bought 3 x ConcurrentTest for $3.00. Remaining budget: $997.00
+[2025-10-28 23:51:49] PURCHASE - User: QCU1111 - Params: QC6001,3,28102025 - Result: Purchase successful! Bought 3 x ConcurrentTest for $3.00. Remaining budget: $979.03
+[2025-10-28 23:51:49] PURCHASE - User: QCU2222 - Params: QC6001,3,28102025 - Result: Purchase successful! Bought 3 x ConcurrentTest for $3.00. Remaining budget: $997.00
+[2025-10-28 23:51:49] REMOVE_ITEM - User: QCM1111 - Params: QC7001,5 - Result: Item not found
+[2025-10-28 23:51:49] ADD_ITEM - User: QCM1111 - Params: QC7001,Test,10,1.0 - Result: Item added successfully
+[2025-10-28 23:56:31] LIST_ITEMS - User: QCM1111 - Params:  - Result: Listed 10 items
+[2025-10-28 23:56:53] ADD_ITEM - User: QCM1111 - Params: QC9001,Laptop,10,999.99 - Result: Item added successfully
+[2025-10-28 23:56:55] LIST_ITEMS - User: QCM1111 - Params:  - Result: Listed 11 items
+[2025-10-29 00:01:13] REMOTE_PURCHASE - User: QCU3333 - Params: ON1001,1,28102025 - Result: Purchase successful. Remaining budget: $991.01
+[2025-10-29 00:01:29] REMOTE_PURCHASE_FAILED - User: QCU3333 - Params: ON1002,1,28102025 - Result: Purchase failed: Already purchased from ON store. Limit: 1 item per remote store.
+[2025-10-29 00:01:45] REMOTE_PURCHASE - User: QCU3333 - Params: BC1001,1,28102025 - Result: Purchase successful. Remaining budget: $985.02
+[2025-10-29 00:04:06] PURCHASE - User: QCU1111 - Params: QC2001,1,28102025 - Result: Purchase successful! Bought 1 x Milk for $4.99. Remaining budget: $974.04
+[2025-10-29 00:04:22] RETURN - User: QCU1111 - Params: QC2001,28102025 - Result: Return successful. Refunded: $4.99
+[2025-10-29 00:05:33] PURCHASE - User: QCU4444 - Params: QC1001,1,28102025 - Result: Purchase successful! Bought 1 x Coffee for $5.99. Remaining budget: $994.01
+[2025-10-29 00:05:42] EXCHANGE_START - User: QCU4444 - Params: newItem=QC1002,oldItem=QC1001 - Result: Started
+[2025-10-29 00:05:42] EXCHANGE - User: QCU4444 - Params: QC1002,QC1001 - Result: Exchange successful. Refunded $2.0
+[2025-10-29 00:06:00] PURCHASE - User: QCU5555 - Params: QC1001,1,28102025 - Result: Purchase successful! Bought 1 x Coffee for $5.99. Remaining budget: $994.01
+[2025-10-29 00:06:11] EXCHANGE_START - User: QCU5555 - Params: newItem=ON1001,oldItem=QC1001 - Result: Started
+[2025-10-29 00:06:11] EXCHANGE - User: QCU5555 - Params: ON1001,QC1001 - Result: Exchange successful. Refunded $0.0
+[2025-10-29 00:08:25] ADD_ITEM - User: QCM1111 - Params: QC8888,OutOfStock,0,10.0 - Result: Item added successfully

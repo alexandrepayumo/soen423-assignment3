@@ -1,0 +1,3 @@
+[2025-10-29 00:01:13] PURCHASE - User: QCU3333 - Params: ON1001,28102025 - Result: Purchase successful. Remaining budget: $991.01
+[2025-10-29 00:01:29] PURCHASE - User: QCU3333 - Params: ON1002,28102025 - Result: Purchase failed: Already purchased from ON store. Limit: 1 item per remote store.
+[2025-10-29 00:01:45] PURCHASE - User: QCU3333 - Params: BC1001,28102025 - Result: Purchase successful. Remaining budget: $985.02

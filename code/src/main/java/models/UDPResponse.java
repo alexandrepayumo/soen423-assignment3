@@ -67,8 +67,20 @@ public class UDPResponse implements Serializable {
         sb.append(errorCode != null ? errorCode : "").append("|");
         sb.append(newBudget).append("|");
         sb.append(transactionID != null ? transactionID : "").append("|");
-        sb.append(itemPrice);
-        // Note: foundItems not serialized in simple string format
+        sb.append(itemPrice).append("|");
+        
+        // Serialize foundItems
+        if (foundItems != null && !foundItems.isEmpty()) {
+            for (int i = 0; i < foundItems.size(); i++) {
+                Item item = foundItems.get(i);
+                if (i > 0) sb.append(";");
+                sb.append(item.getItemID()).append(",")
+                  .append(item.getItemName()).append(",")
+                  .append(item.getQuantity()).append(",")
+                  .append(item.getPrice());
+            }
+        }
+        
         return sb.toString();
     }
     
@@ -89,6 +101,25 @@ public class UDPResponse implements Serializable {
         response.errorCode = errorCode;
         response.transactionID = transactionID;
         response.itemPrice = itemPrice;
+        
+        // Deserialize foundItems if present
+        if (parts.length > 6 && !parts[6].isEmpty()) {
+            java.util.List<Item> items = new java.util.ArrayList<>();
+            String[] itemStrings = parts[6].split(";");
+            for (String itemStr : itemStrings) {
+                String[] itemParts = itemStr.split(",");
+                if (itemParts.length == 4) {
+                    Item item = new Item(
+                        itemParts[0],                           // itemID
+                        itemParts[1],                           // itemName
+                        Integer.parseInt(itemParts[2]),        // quantity
+                        Double.parseDouble(itemParts[3])       // price
+                    );
+                    items.add(item);
+                }
+            }
+            response.foundItems = items;
+        }
         
         return response;
     }
