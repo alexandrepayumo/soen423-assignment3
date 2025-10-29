@@ -68,8 +68,10 @@ public class ComprehensiveTestRunner {
         });
         
         test("Update Existing Item Quantity", () -> {
-            qcServer.addItem("QCM1111", "QC1001", "Coffee", 5, 5.99);
-            String result = qcServer.addItem("QCM1111", "QC1001", "Coffee", 10, 5.99);
+            // Use a unique item to avoid state conflicts with other tests
+            qcServer.addItem("QCM1111", "QC8001", "TestCoffee", 10, 5.99);
+            qcServer.addItem("QCM1111", "QC8001", "TestCoffee", 5, 5.99);
+            String result = qcServer.addItem("QCM1111", "QC8001", "TestCoffee", 10, 5.99);
             return result.contains("updated") && result.contains("25");
         });
         
@@ -126,7 +128,7 @@ public class ComprehensiveTestRunner {
         test("Reject Purchase - Insufficient Quantity", () -> {
             qcServer.addItem("QCM1111", "QC4001", "LimitedItem", 3, 2.00);
             String result = qcServer.purchaseItem("QCU3333", "QC4001", 5, today);
-            return result.contains("Insufficient quantity");
+            return result.contains("Insufficient quantity") && result.contains("Available: 3");
         });
         
         test("Out of Stock Triggers Waitlist Prompt", () -> {

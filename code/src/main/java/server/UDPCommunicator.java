@@ -18,9 +18,9 @@ public class UDPCommunicator {
         this.server = server;
         this.pendingExchanges = new ConcurrentHashMap<>();
         this.storePorts = new HashMap<>();
-        storePorts.put("QC", 8001);
-        storePorts.put("ON", 8002);
-        storePorts.put("BC", 8003);
+        storePorts.put("QC", 9001);
+        storePorts.put("ON", 9002);
+        storePorts.put("BC", 9003);
     }
     
     public void startUDPServer() {
