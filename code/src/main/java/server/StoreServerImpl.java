@@ -29,7 +29,7 @@ public class StoreServerImpl implements StoreServer {
     private final UDPCommunicator udpComm;
     
     public StoreServerImpl() {
-        // Default constructor required by JAX-WS
+        //Default constructor required by JAX-WS
         this.storePrefix = null;
         this.inventory = null;
         this.waitlists = null;
@@ -122,7 +122,6 @@ public class StoreServerImpl implements StoreServer {
             
             String result;
             if (quantity >= item.getQuantity()) {
-                // Set quantity to 0 instead of removing (keeps item for waitlist functionality)
                 item.setQuantity(0);
                 result = "Item quantity set to 0. Item remains in inventory for waitlist.";
             } else {
@@ -319,17 +318,14 @@ public class StoreServerImpl implements StoreServer {
         String oldItemStore = oldItemID.substring(0, 2);
         
         if (newItemStore.equals(storePrefix)) {
-            // Local exchange (new item is in same store as customer)
             return executeLocalExchange(customerID, newItemID, oldItemID, oldPurchase, oldItemStore);
         } else {
-            // Cross-store exchange (new item is in different store)
             return executeCrossStoreExchange(customerID, newItemID, oldItemID, oldPurchase, newItemStore, oldItemStore);
         }
     }
     
     private String executeLocalExchange(String customerID, String newItemID, String oldItemID, 
                                        Purchase oldPurchase, String oldItemStore) {
-        // Get locks for both items (order by itemID to prevent deadlock)
         String firstLockItem = newItemID.compareTo(oldItemID) < 0 ? newItemID : oldItemID;
         String secondLockItem = newItemID.compareTo(oldItemID) < 0 ? oldItemID : newItemID;
         
@@ -572,12 +568,9 @@ public class StoreServerImpl implements StoreServer {
                 return "ERROR,Insufficient budget";
             }
             
-            // Check if customer already purchased a DIFFERENT item from this store
             List<Purchase> purchases = purchaseHistory.get(customerID);
             if (purchases != null) {
                 for (Purchase purchase : purchases) {
-                    // If they've purchased any item from this store already, deny
-                    // (Only one item type per remote store allowed)
                     if (purchase.getItemID().startsWith(storePrefix)) {
                         return "ERROR,Already purchased from " + storePrefix + " store. Limit: 1 item per remote store.";
                     }
@@ -587,7 +580,6 @@ public class StoreServerImpl implements StoreServer {
             item.setQuantity(item.getQuantity() - quantity);
             double newBudget = customerBudget - totalCost;
             
-            // Track this remote purchase locally to enforce limit
             purchaseHistory.computeIfAbsent(customerID, k -> new ArrayList<>())
                           .add(new Purchase(customerID, itemID, date, totalCost));
             

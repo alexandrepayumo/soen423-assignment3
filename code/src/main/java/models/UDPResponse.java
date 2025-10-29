@@ -13,28 +13,28 @@ public class UDPResponse implements Serializable {
     private String transactionID;
     private double itemPrice;
     
-    // Constructor for simple success/failure
+    //Constructor for simple success/failure
     public UDPResponse(boolean success, String message, String errorCode) {
         this.success = success;
         this.message = message;
         this.errorCode = errorCode;
     }
     
-    // Constructor for purchase operations
+    //Constructor for purchase operations
     public UDPResponse(boolean success, String message, double newBudget) {
         this.success = success;
         this.message = message;
         this.newBudget = newBudget;
     }
     
-    // Constructor for find operations
+    //Constructor for find operations
     public UDPResponse(boolean success, String message, List<Item> foundItems) {
         this.success = success;
         this.message = message;
         this.foundItems = foundItems;
     }
     
-    // Constructor for exchange operations
+    //Constructor for exchange operations
     public UDPResponse(boolean success, String message, double newBudget, String transactionID) {
         this.success = success;
         this.message = message;
@@ -42,7 +42,7 @@ public class UDPResponse implements Serializable {
         this.transactionID = transactionID;
     }
     
-    // Constructor for exchange check operations
+    //Constructor for exchange check operations
     public UDPResponse(boolean success, String message, double newBudget, double itemPrice) {
         this.success = success;
         this.message = message;
@@ -50,7 +50,6 @@ public class UDPResponse implements Serializable {
         this.itemPrice = itemPrice;
     }
     
-    // Getters
     public boolean isSuccess() { return success; }
     public String getMessage() { return message; }
     public String getErrorCode() { return errorCode; }
@@ -69,7 +68,7 @@ public class UDPResponse implements Serializable {
         sb.append(transactionID != null ? transactionID : "").append("|");
         sb.append(itemPrice).append("|");
         
-        // Serialize foundItems
+        //Serialize foundItems
         if (foundItems != null && !foundItems.isEmpty()) {
             for (int i = 0; i < foundItems.size(); i++) {
                 Item item = foundItems.get(i);
@@ -102,7 +101,7 @@ public class UDPResponse implements Serializable {
         response.transactionID = transactionID;
         response.itemPrice = itemPrice;
         
-        // Deserialize foundItems if present
+        //Deserialize foundItems if present
         if (parts.length > 6 && !parts[6].isEmpty()) {
             java.util.List<Item> items = new java.util.ArrayList<>();
             String[] itemStrings = parts[6].split(";");
@@ -110,10 +109,10 @@ public class UDPResponse implements Serializable {
                 String[] itemParts = itemStr.split(",");
                 if (itemParts.length == 4) {
                     Item item = new Item(
-                        itemParts[0],                           // itemID
-                        itemParts[1],                           // itemName
-                        Integer.parseInt(itemParts[2]),        // quantity
-                        Double.parseDouble(itemParts[3])       // price
+                        itemParts[0],
+                        itemParts[1],
+                        Integer.parseInt(itemParts[2]),
+                        Double.parseDouble(itemParts[3])
                     );
                     items.add(item);
                 }

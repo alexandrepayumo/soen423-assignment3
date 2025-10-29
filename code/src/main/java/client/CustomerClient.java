@@ -16,7 +16,7 @@ public class CustomerClient {
         clientLogger = new DSMSLogger(customerID + "_client.log");
         
         try {
-            // Determine store prefix and connect to appropriate web service
+            //Determine store prefix and connect to appropriate web service
             String storePrefix = customerID.substring(0, 2).toUpperCase();
             Object server = connectToWebService(storePrefix);
             

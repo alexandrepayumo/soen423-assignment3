@@ -14,7 +14,7 @@ public class UDPRequest implements Serializable {
     private double oldItemPrice;
     private int quantity;
     
-    // Constructor for PURCHASE operation
+    //Constructor for PURCHASE operation
     public UDPRequest(String customerID, String itemID, int quantity, String date, double budget) {
         this.operation = "PURCHASE";
         this.customerID = customerID;
@@ -24,14 +24,14 @@ public class UDPRequest implements Serializable {
         this.budget = budget;
     }
     
-    // Constructor for FIND operation
+    //Constructor for FIND operation
     public UDPRequest(String customerID, String itemName) {
         this.operation = "FIND";
         this.customerID = customerID;
         this.itemName = itemName;
     }
     
-    // Constructor for EXCHANGE_CHECK operation
+    //Constructor for EXCHANGE_CHECK operation
     public UDPRequest(String customerID, String newItemID, String oldItemID, double budget, double oldItemPrice) {
         this.operation = "EXCHANGE_CHECK";
         this.customerID = customerID;
@@ -41,7 +41,7 @@ public class UDPRequest implements Serializable {
         this.oldItemPrice = oldItemPrice;
     }
     
-    // Constructor for other exchange operations with budget
+    //Constructor for other exchange operations with budget
     public UDPRequest(String operation, String customerID, String itemID, String oldItemID, double budget, double oldItemPrice) {
         this.operation = operation;
         this.customerID = customerID;
@@ -51,8 +51,8 @@ public class UDPRequest implements Serializable {
         this.oldItemPrice = oldItemPrice;
     }
     
-    // Constructor for operations with 4 string parameters (EXCHANGE_ROLLBACK, EXCHANGE_RETURN, EXCHANGE_UNDO_RETURN)
-    // The 4th parameter is used as oldItemID for ROLLBACK, or date for RETURN operations
+    //Constructor for operations with 4 string parameters (EXCHANGE_ROLLBACK, EXCHANGE_RETURN, EXCHANGE_UNDO_RETURN)
+    //The 4th parameter is used as oldItemID for ROLLBACK, or date for RETURN operations
     public UDPRequest(String operation, String customerID, String itemID, String param4) {
         this.operation = operation;
         this.customerID = customerID;

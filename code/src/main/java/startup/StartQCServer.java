@@ -12,10 +12,8 @@ public class StartQCServer {
             
             System.out.println("Starting QC Server...");
             
-            // Create server implementation
             StoreServerImpl serverImpl = new StoreServerImpl(storePrefix, udpPort);
             
-            // Publish web service
             Endpoint endpoint = Endpoint.publish(serviceUrl, serverImpl);
             
             System.out.println("QC Server started successfully!");
@@ -24,7 +22,6 @@ public class StartQCServer {
             System.out.println("UDP Port: " + udpPort);
             System.out.println("\nPress Ctrl+C to stop the server...");
             
-            // Keep server running
             Thread.currentThread().join();
             
         } catch (InterruptedException e) {
