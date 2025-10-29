@@ -1,0 +1,4 @@
+[2025-09-17 23:51:23] PURCHASE - User: QCU3333 - Params: QC1002,17092925 - Result: Purchase successful. Remaining budget: $996.01
+[2025-09-17 23:53:05] RETURN - User: QCU3333 - Params: QC1002,20092025 - Result: Return successful. Refunded: $3.99
+[2025-09-17 23:53:37] PURCHASE - User: QCU3333 - Params: QC1002,17092025 - Result: Purchase successful. Remaining budget: $996.01
+[2025-09-17 23:53:48] RETURN - User: QCU3333 - Params: QC1002,20102025 - Result: Return period expired (30 days limit)
